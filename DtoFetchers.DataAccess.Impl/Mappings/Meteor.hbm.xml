@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" assembly="DtoFetchers.Domain" namespace="DtoFetchers.Domain">
+  <class name="Meteor" table="Meteors" lazy="false">
+    <id name="Id">
+      <generator class="guid.comb"/>
+    </id>
+    <property name="Name" column="name"/>
+    <property name="Weight" column="weight"/>
+    <many-to-one name="Material" column="materialId" class="DtoFetchers.Domain.Dictionaries.Material"/>
+    <property name="DistanceToEarth" column="distanceToEarth"/>
+    <many-to-one name="RiskLevel" column="riskLevelId" class="DtoFetchers.Domain.Dictionaries.RiskLevel"/>
+  </class>
+</hibernate-mapping>

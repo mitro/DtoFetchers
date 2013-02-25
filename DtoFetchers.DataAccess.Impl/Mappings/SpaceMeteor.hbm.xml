@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" assembly="DtoFetchers.Domain" namespace="DtoFetchers.Domain">
+  <joined-subclass name="SpaceMeteor" extends="Meteor" table="SpaceMeteors" lazy="false">
+    <key column="meteorId"/>
+    <property name="DetectedAt" column="detectedAt"/>
+    <many-to-one name="DetectingPerson" column="detectingPersonId" class="DtoFetchers.Domain.Person"/>
+    <many-to-one name="PlaceOfOrigin" column="placeOfOriginId" class="DtoFetchers.Domain.Dictionaries.Galaxy"/>
+  </joined-subclass>
+</hibernate-mapping>

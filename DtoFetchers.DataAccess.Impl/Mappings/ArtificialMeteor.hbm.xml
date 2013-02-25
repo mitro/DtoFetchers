@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" assembly="DtoFetchers.Domain" namespace="DtoFetchers.Domain">
+  <joined-subclass name="ArtificialMeteor" extends="Meteor" table="ArtificialMeteors" lazy="false">
+    <key column="meteorId"/>
+    <many-to-one name="Country" column="countryId" class="DtoFetchers.Domain.Dictionaries.Country"/>
+    <many-to-one name="Maker" column="makerId" class="DtoFetchers.Domain.SecretFactory"/>
+    <property name="SerialNumber" column="serialNumber"/>
+    <many-to-one name="QualityEngineer" column="qualityEngineerId" class="DtoFetchers.Domain.Person"/>
+  </joined-subclass>
+</hibernate-mapping>
